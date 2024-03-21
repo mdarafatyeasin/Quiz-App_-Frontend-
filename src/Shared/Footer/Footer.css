@@ -5,9 +5,37 @@
     justify-content: center;
     height: 200px;
     width: 100%; /* Set width to 100% */
+    display: flex;
+    justify-content: center;
+    color: white;
+    padding: 20px;
 }
 
 
 .footer-section footer{
     width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.copyright{
+    text-align: center;
+}
+
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.social-media ul{
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.social-box{
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
