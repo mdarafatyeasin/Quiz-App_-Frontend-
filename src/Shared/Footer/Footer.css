@@ -1,0 +1,13 @@
+.footer-section {
+    background-image: url("./asset/footer.png");
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    height: 200px;
+    width: 100%; /* Set width to 100% */
+}
+
+
+.footer-section footer{
+    width: 80%;
+}

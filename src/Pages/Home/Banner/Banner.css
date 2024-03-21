@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.banner-component {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+}
+
+.banner-text {
+    flex: 1;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+}
+
+.banner-text h1 {
+    color: aliceblue;
+    font-size: 3.3rem;
+    margin-bottom: 20px;
+}
+
+.banner-text p {
+    padding-left: 10px;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: rgb(197, 195, 195);
+}
+
+.banner-text button {
+    margin-top: 40px;
+    /* border: none; */
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition effect */
+}
+
+.play-now{
+    border: 3px solid #73007b;
+    background-image: linear-gradient(to right, #73007b, #ae0575); /* Adjust the colors as needed */
+    color: white; /* Text color */
+    background-color: transparent; /* Fallback for older browsers */
+    transition: background-image 0.3s; /* Smooth transition effect */
+}
+
+.premium-button{
+    border: 3px solid #73007b;
+    background-image: linear-gradient(to right, #73007b, #35004c); /* Adjust the colors as needed */
+    color: white; /* Text color */
+    background-color: transparent; /* Fallback for older browsers */
+    transition: background-image 0.3s; /* Smooth transition effect */
+}
+
+.banner-text button:hover {
+    background: transparent;
+}
+
+.banner-anim {
+    flex: 1;
+    padding: 20px;
+}
+
+.banner-anim div {
+    width: 100%;
+}
+

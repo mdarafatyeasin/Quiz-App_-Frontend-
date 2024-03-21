@@ -1,0 +1,90 @@
+.MindForge-section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.specialty {
+    width: 40%;
+}
+
+.MindForge-content {
+    width: 70%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.specialty-card {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    background-color: rgba(255, 255, 255, 0.23);
+}
+
+.specialty-card img {
+    width: 12%;
+    margin-right: 15px;
+}
+
+.specialty-title {
+    padding-left: 70px;
+    width: 70%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.specialty-title h1 {
+    font-size: 40px;
+    font-weight: 800; 
+    color: #fff;
+    /* background-image: linear-gradient(to right, #1E90FF, #87CEEB); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;  */
+}
+
+
+.mindforge-button {
+    border: 3px solid rgba(44, 100, 132, 0.3);
+    /* Semi-transparent and lighter border */
+    background-color: rgba(44, 100, 132, 0.2);
+    /* Semi-transparent background */
+    color: rgba(255, 255, 255, 0.9);
+    /* Semi-transparent text color */
+    padding: 10px 30px;
+    /* Adjust padding as needed */
+    border-radius: 50px;
+    /* Rounded corners */
+    width: 45%;
+    /* Adjust width as needed */
+    margin-top: 30px;
+    /* Adjust margin top as needed */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    /* Smooth transition effect */
+}
+
+.mindforge-button:hover {
+    background-color: #3983a1;
+    /* Darker orange button color on hover */
+}
+
+.s-t {
+    color: azure;
+    position: relative;
+    padding-bottom: 5px;
+    padding-left: 10px;
+}
+
+.s-t::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-image: linear-gradient(to right, #1E90FF, #87CEEB);
+}
