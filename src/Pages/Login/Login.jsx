@@ -1,5 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import "./Login.css";
+// icon
+import { FaUser } from "react-icons/fa";
+import { FaLock } from "react-icons/fa";
 
 const Login = () => {
   const handleLogin = (event) => {
@@ -42,12 +45,25 @@ const Login = () => {
       <Helmet>
         <title>QuizApp | Login</title>
       </Helmet>
-      <div>
+      <div className="login-content">
         <h1 className="login-title">Login</h1>
         <form className="login-form" onSubmit={handleLogin}>
-          <input type="text" name="username" />
-          <input type="password" name="password" />
-          <input type="submit" value="Login" />
+          <div className="input-box">
+            <input type="text" name="username" placeholder="Username" />
+            <FaUser className="input-icon"/>
+          </div>
+          <div className="input-box">
+            <input type="password" name="password" placeholder="Password" />
+            <FaLock className="input-icon"/>
+          </div>
+          <div className="remember-forgot">
+            <label><input type="checkbox" />Remember me</label>
+            <a href="#">Forgot password?</a>
+          </div>
+          <input className="login-button" type="submit" value="Login" />
+          <div className="register-link">
+            <p>Don't have an account? <a href="#">Register</a></p>
+          </div>
         </form>
       </div>
     </div>
