@@ -6,9 +6,8 @@ const PlayQuiz = () => {
   const { id } = useParams();
   const [questions, setQuestions] = useState([]);
   const [questionCount, setQuestionCount] = useState(0);
-  const [selectedOption, setSelectedOption] = useState(null);
   const [point, setPoint] = useState(0);
-  const [answeredQuestions, setAnsweredQuestions] = useState([]);
+  const [selectedOption, setSelectedOption] = useState(null); // State to hold the selected option
 
   useEffect(() => {
     const url = `http://127.0.0.1:8000/quiz/card_question/${id}`;
@@ -21,56 +20,74 @@ const PlayQuiz = () => {
 
   const currentQuestion = questions[questionCount];
 
-  const handleOptionClick = (option) => {
-    setSelectedOption(option);
-  };
-
-  const nextQuestion = () => {
-    // Check if the selected option is correct and the question has not been answered before
-    if (selectedOption === currentQuestion.answer && !answeredQuestions.includes(questionCount)) {
+  const handleOption = (e) => {
+    const selectedOption = e.target.value;
+    if (selectedOption === currentQuestion.answer) {
+      // Increment point if the selected option is correct
       setPoint((prevPoint) => prevPoint + 1);
-      setAnsweredQuestions((prevAnsweredQuestions) => [...prevAnsweredQuestions, questionCount]);
     }
+    // Move to the next question
     setQuestionCount((prevCount) => prevCount + 1);
-    setSelectedOption(null); // Reset selected option for the next question
-  };
-
-  const previousQuestion = () => {
-    if (questionCount > 0) {
-      setQuestionCount((prevCount) => prevCount - 1);
-      setSelectedOption(null); // Reset selected option for the previous question
-    }
+    setSelectedOption(null); // Reset selected option to null when moving to the next question
   };
 
   return (
     <div className="quiz-page">
       <h1>This is play quiz page</h1>
-      <p>Total Questions: {questions.length}</p>
-      {questionCount < questions.length ? (
-        // Render question if not all questions have been answered
+      {currentQuestion && (
         <div>
-          <h1>Question {questionCount + 1}</h1>
-          <h1>{currentQuestion.question}</h1>
-          <p onClick={() => handleOptionClick(currentQuestion.option1)}>
-            {currentQuestion.option1}
-          </p>
-          <p onClick={() => handleOptionClick(currentQuestion.option2)}>
-            {currentQuestion.option2}
-          </p>
-          <p onClick={() => handleOptionClick(currentQuestion.option3)}>
-            {currentQuestion.option3}
-          </p>
-          <p onClick={() => handleOptionClick(currentQuestion.option4)}>
-            {currentQuestion.option4}
-          </p>
-          <button onClick={previousQuestion}>Previous</button>
-          <button onClick={nextQuestion}>Next</button>
+          <h2>Question {questionCount + 1}</h2>
+          <p>{currentQuestion.question}</p>
+          <div>
+            <input
+              type="radio"
+              id="option1"
+              name="options"
+              value={currentQuestion.option1}
+              onChange={handleOption}
+              checked={selectedOption === currentQuestion.option1} // Check if the selected option is the current option
+            />
+            <label htmlFor="option1">{currentQuestion.option1}</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="option2"
+              name="options"
+              value={currentQuestion.option2}
+              onChange={handleOption}
+              checked={selectedOption === currentQuestion.option2} // Check if the selected option is the current option
+            />
+            <label htmlFor="option2">{currentQuestion.option2}</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="option3"
+              name="options"
+              value={currentQuestion.option3}
+              onChange={handleOption}
+              checked={selectedOption === currentQuestion.option3} // Check if the selected option is the current option
+            />
+            <label htmlFor="option3">{currentQuestion.option3}</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="option4"
+              name="options"
+              value={currentQuestion.option4}
+              onChange={handleOption}
+              checked={selectedOption === currentQuestion.option4} // Check if the selected option is the current option
+            />
+            <label htmlFor="option4">{currentQuestion.option4}</label>
+          </div>
         </div>
-      ) : (
-        // Render total points if all questions have been answered
+      )}
+      {questionCount !== 0 && questionCount === questions.length && (
         <div>
-          <h1>Total Points: {point}</h1>
-          <h1>Thank you for completing the quiz!</h1>
+          <h2>Quiz Completed!</h2>
+          <p>Total Points: {point}</p>
         </div>
       )}
     </div>
