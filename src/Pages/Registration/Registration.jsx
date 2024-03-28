@@ -5,6 +5,7 @@ import { FaUser } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import { IoCall } from "react-icons/io5";
 import { MdMarkEmailRead } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Registration = () => {
   const handelRegistration = (event) => {
@@ -100,7 +101,7 @@ const Registration = () => {
           />
           <div className="login-link">
             <p>
-              Already have an account? <a href="#">Login</a>
+              Already have an account? <Link to="/login">Login</Link>
             </p>
           </div>
         </form>

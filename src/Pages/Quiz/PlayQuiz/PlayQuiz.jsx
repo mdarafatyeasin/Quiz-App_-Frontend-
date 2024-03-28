@@ -1,6 +1,7 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./PlayQuiz.css";
 import { useEffect, useState } from "react";
+import WinCup from "./WinCup";
 
 const PlayQuiz = () => {
   const { id } = useParams();
@@ -22,23 +23,29 @@ const PlayQuiz = () => {
 
   const handleOption = (e) => {
     const selectedOption = e.target.value;
+    setSelectedOption(selectedOption);
+  };
+
+  const handleNextQuestion = () => {
+    // Move to the next question
     if (selectedOption === currentQuestion.answer) {
       // Increment point if the selected option is correct
       setPoint((prevPoint) => prevPoint + 1);
     }
-    // Move to the next question
+    // Reset selected option to null for the next question
+    setSelectedOption(null);
     setQuestionCount((prevCount) => prevCount + 1);
-    setSelectedOption(null); // Reset selected option to null when moving to the next question
   };
 
   return (
     <div className="quiz-page">
-      <h1>This is play quiz page</h1>
+      
       {currentQuestion && (
         <div>
+          <h1 className="quentin-title">Python</h1>
           <h2>Question {questionCount + 1}</h2>
-          <p>{currentQuestion.question}</p>
-          <div>
+          <p className="question">{currentQuestion.question}</p>
+          <div className="option-section">
             <input
               type="radio"
               id="option1"
@@ -49,7 +56,7 @@ const PlayQuiz = () => {
             />
             <label htmlFor="option1">{currentQuestion.option1}</label>
           </div>
-          <div>
+          <div className="option-section">
             <input
               type="radio"
               id="option2"
@@ -60,7 +67,7 @@ const PlayQuiz = () => {
             />
             <label htmlFor="option2">{currentQuestion.option2}</label>
           </div>
-          <div>
+          <div className="option-section">
             <input
               type="radio"
               id="option3"
@@ -71,7 +78,7 @@ const PlayQuiz = () => {
             />
             <label htmlFor="option3">{currentQuestion.option3}</label>
           </div>
-          <div>
+          <div className="option-section">
             <input
               type="radio"
               id="option4"
@@ -82,12 +89,20 @@ const PlayQuiz = () => {
             />
             <label htmlFor="option4">{currentQuestion.option4}</label>
           </div>
+          <div className="next-button">
+            <button onClick={handleNextQuestion}>Next</button>
+          </div>
         </div>
       )}
       {questionCount !== 0 && questionCount === questions.length && (
-        <div>
-          <h2>Quiz Completed!</h2>
-          <p>Total Points: {point}</p>
+        <div className="result-card">
+          <WinCup />
+          <div>
+            <h2>Congrats!</h2>
+            <h3>Total Points: {point}</h3>
+            <p>Quiz completed successfully.</p>
+            <Link className="again-play" to="/play_quiz">Play More</Link>
+          </div>
         </div>
       )}
     </div>

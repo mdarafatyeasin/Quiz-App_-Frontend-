@@ -1,6 +1,114 @@
-.quiz-page{
+.quiz-page {
     padding-top: 75px;
-    width: 75%;
+    width: 50%;
     margin: auto;
-    height: 80vh;
 }
+
+.quentin-title {
+    font-size: 45px;
+    border-bottom: 4px solid #a209af;
+    text-align: center;
+    margin: 40px;
+    color: white;
+}
+
+.question {
+    font-size: 25px;
+    font-weight: 700;
+    color: white;
+}
+
+.option-section {
+    margin-top: 20px;
+    margin-left: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(99, 99, 99, 0.273);
+    padding-left: 10px;
+    color: white;
+}
+
+.option-section input {
+    margin-right: 10px;
+    color: rgb(245, 245, 245);
+}
+
+.option-section input[type="radio"]:checked + label {
+    color: rgb(59, 255, 59);
+}
+
+.option-section input[type=radio] {
+    accent-color: rgb(59, 255, 59);
+    height: 16px;
+    width: 16px;
+}
+
+.next-button{
+    text-align: end;
+}
+
+.next-button button{
+    padding: 5px 10px;
+    background-color: yellow;
+    color: black;
+    margin: 20px 0;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.win-cup div{
+    height: 200px;
+
+}
+
+.result-card {
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+    margin: 150px auto;
+    box-shadow: rgba(255, 52, 255, 0.823) 0px 7px 29px 0px;
+    background: linear-gradient(135deg, rgba(204, 221, 231, 0.944), rgba(255, 255, 255, 0.944));
+}
+
+.again-play {
+    padding: 5px 10px; /* Increased padding for better click area */
+    border-radius: 10px; /* Rounded corners */
+    /* border: 2px solid #73007b; */
+    background-image: linear-gradient(to right, #73007b, #ae0575); /* Gradient background */
+    color: white; /* Text color */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Bold text */
+    text-transform: uppercase; /* Uppercase text */
+    cursor: pointer; /* Cursor style */
+    outline: none; /* Remove outline on focus */
+}
+
+.result-card div{
+    text-align: center;
+    padding-right: 15px;
+    width: 100%;
+}
+
+.result-card h2{
+    color: rgb(3, 3, 85);
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.result-card h3{
+    color: rgb(29, 131, 80);
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.result-card p{
+    color: rgb(3, 3, 85);
+    font-weight: 700;
+    font-size: 10px;
+    margin-bottom: 25px;
+}
+
+
+
+

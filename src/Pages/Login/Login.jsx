@@ -3,6 +3,7 @@ import "./Login.css";
 // icon
 import { FaUser } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const handleLogin = (event) => {
@@ -62,7 +63,7 @@ const Login = () => {
           </div>
           <input className="login-button" type="submit" value="Login" />
           <div className="register-link">
-            <p>Don't have an account? <a href="#">Register</a></p>
+            <p>Don't have an account? <Link to="/registration">Register</Link></p>
           </div>
         </form>
       </div>
