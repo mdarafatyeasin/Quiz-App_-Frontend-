@@ -28,6 +28,9 @@ const Navbar = () => {
         <li>
           <Link to="/play_quiz">Quiz</Link>
         </li>
+        <li>
+          <Link to="/dashboard">Dashboard</Link>
+        </li>
       </ul>
       <button className="mobile-menu-icon" onClick={()=> setisMobile(!isMobile)}>
         {isMobile ? <IoMenu size={40}/> : <RxCross2 size={40}/>}
