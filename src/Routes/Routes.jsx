@@ -1,14 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home";
-import Login from "../Pages/Login/Login";
-import Registration from "../Pages/Registration/Registration";
 import Quiz from "../Pages/Quiz/Quiz";
 import PlayQuiz from "../Pages/Quiz/PlayQuiz/PlayQuiz";
 import Dashboard from "../Layout/Dashboard";
 import UserDashboard from "../Dashboard/UserDashboard";
 import UploadQuestion from "../Dashboard/dashboard_components/UploadQuestion/UploadQuestion";
 import CreateQuiz from "../Dashboard/dashboard_components/CreateQuiz/CreateQuiz";
+import Registration from "../Pages/Authentication/Registration/Registration";
+import Login from "../Pages/Authentication/Login/Login";
 
 export const router = createBrowserRouter([
   {
@@ -33,7 +33,9 @@ export const router = createBrowserRouter([
       },
       {
         path: "/play_quiz/:id",
-        element: <PlayQuiz />,
+        element: (
+            <PlayQuiz />
+        ),
       },
     ],
   },
@@ -51,7 +53,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/upload_question",
-        element: <UploadQuestion/>,
+        element: <UploadQuestion />,
       },
     ],
   },

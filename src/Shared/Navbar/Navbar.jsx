@@ -4,8 +4,12 @@ import { useState } from "react";
 // icons
 import { IoMenu } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
+// import useUser from "../../Hooks/useUser";
 
 const Navbar = () => {
+
+  // const { user, loading } = useUser();
+  // console.log(user)
 
   const [isMobile, setisMobile] = useState(true)
 

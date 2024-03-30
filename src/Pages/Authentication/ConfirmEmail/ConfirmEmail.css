@@ -1,0 +1,30 @@
+.confirm-email-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .animation-container {
+    width: 300px; /* Adjust width as needed */
+    margin-bottom: 20px;
+  }
+  
+  .confirmation-text {
+    text-align: center;
+  }
+  
+  .confirmation-text h1 {
+    font-family: 'Roboto', sans-serif; /* Google Font: Roboto */
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .confirmation-text p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #555;
+    max-width: 400px; /* Adjust max-width as needed */
+  }
+  

@@ -3,9 +3,12 @@ import "./Login.css";
 // icon
 import { FaUser } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
+
+  const usenavigete = useNavigate()
+
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -37,6 +40,8 @@ const Login = () => {
         console.log("Data received:", data);
         localStorage.setItem("token", data.token, "id", data.user.id);
         localStorage.setItem("id", data.user.id);
+        usenavigete('/')
+        window.location.reload();
       })
       .catch((error) => console.error("Error:", error));
   };
@@ -63,7 +68,7 @@ const Login = () => {
           </div>
           <input className="login-button" type="submit" value="Login" />
           <div className="register-link">
-            <p>Don't have an account? <Link to="/registration">Register</Link></p>
+            <p>Dont have an account? <Link to="/registration">Register</Link></p>
           </div>
         </form>
       </div>

@@ -1,14 +1,18 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
 import "./PlayQuiz.css";
 import { useEffect, useState } from "react";
 import WinCup from "./WinCup";
+import useUser from "../../../Hooks/useUser";
+import Loader from "../../../Shared/Loader/Loader";
 
 const PlayQuiz = () => {
+  const {user, loading} = useUser()
   const { id } = useParams();
   const [questions, setQuestions] = useState([]);
   const [questionCount, setQuestionCount] = useState(0);
   const [point, setPoint] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null); // State to hold the selected option
+
 
   useEffect(() => {
     const url = `http://127.0.0.1:8000/quiz/card_question/${id}`;
@@ -36,6 +40,12 @@ const PlayQuiz = () => {
     setSelectedOption(null);
     setQuestionCount((prevCount) => prevCount + 1);
   };
+
+  console.log(user)
+  console.log(loading)
+  if(loading){
+    return <Loader/>
+  }
 
   return (
     <div className="quiz-page">
