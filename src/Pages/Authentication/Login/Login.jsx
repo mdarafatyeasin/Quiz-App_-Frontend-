@@ -4,13 +4,18 @@ import "./Login.css";
 import { FaUser } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import Loader from "../../../Shared/Loader/Loader";
 
 const Login = () => {
 
   const usenavigete = useNavigate()
 
+  const [loading, setLoading] = useState(false)
+
   const handleLogin = (event) => {
     event.preventDefault();
+    setLoading(true)
     const form = event.target;
     const username = form.username.value;
     const password = form.password.value;
@@ -40,11 +45,16 @@ const Login = () => {
         console.log("Data received:", data);
         localStorage.setItem("token", data.token, "id", data.user.id);
         localStorage.setItem("id", data.user.id);
+        localStorage.setItem("username", data.user.username)
+        setLoading(false)
         usenavigete('/')
-        window.location.reload();
       })
       .catch((error) => console.error("Error:", error));
   };
+
+  if(loading){
+    return <Loader/>
+  }
 
   return (
     <div className="login-page">

@@ -3,10 +3,13 @@ import "./Quiz.css";
 import QuizCard from "./QuizCard/QuizCard";
 import { Helmet } from "react-helmet-async";
 import Loader from "../../Shared/Loader/Loader";
+import useUser from "../../Hooks/useUser";
 
 const Quiz = () => {
   const [quizCard, setQuizCard] = useState([]);
   const [loading, setLoading] = useState(true); // Set loading to true initially
+  const {user} = useUser()
+  console.log(user)
 
   useEffect(() => {
     const url = "http://127.0.0.1:8000/quiz/quiz_card/";

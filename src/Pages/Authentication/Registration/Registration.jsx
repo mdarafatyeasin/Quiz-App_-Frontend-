@@ -10,7 +10,7 @@ import ConfirmEmail from "../ConfirmEmail/ConfirmEmail";
 import { useState } from "react";
 
 const Registration = () => {
-  const [registrationSuccess, setRegistrationSuccess] = useState(false);
+  const [registrationSuccess, setRegistrationSuccess] = useState(true);
 
   const handelRegistration = (event) => {
     event.preventDefault();

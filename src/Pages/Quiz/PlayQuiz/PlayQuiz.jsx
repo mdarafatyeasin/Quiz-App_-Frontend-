@@ -1,4 +1,4 @@
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "./PlayQuiz.css";
 import { useEffect, useState } from "react";
 import WinCup from "./WinCup";
@@ -6,13 +6,14 @@ import useUser from "../../../Hooks/useUser";
 import Loader from "../../../Shared/Loader/Loader";
 
 const PlayQuiz = () => {
-  const {user, loading} = useUser()
+  const { user, loading } = useUser();
   const { id } = useParams();
   const [questions, setQuestions] = useState([]);
   const [questionCount, setQuestionCount] = useState(0);
   const [point, setPoint] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null); // State to hold the selected option
 
+  const navigate = useNavigate();
 
   useEffect(() => {
     const url = `http://127.0.0.1:8000/quiz/card_question/${id}`;
@@ -41,15 +42,16 @@ const PlayQuiz = () => {
     setQuestionCount((prevCount) => prevCount + 1);
   };
 
-  console.log(user)
-  console.log(loading)
-  if(loading){
-    return <Loader/>
+  console.log(user);
+  if (loading) {
+    return <Loader />;
+  }
+  if (!user || user.status === "error") {
+    navigate("/login");
   }
 
   return (
     <div className="quiz-page">
-      
       {currentQuestion && (
         <div>
           <h1 className="quentin-title">Python</h1>
@@ -111,7 +113,9 @@ const PlayQuiz = () => {
             <h2>Congrats!</h2>
             <h3>Total Points: {point}</h3>
             <p>Quiz completed successfully.</p>
-            <Link className="again-play" to="/play_quiz">Play More</Link>
+            <Link className="again-play" to="/play_quiz">
+              Play More
+            </Link>
           </div>
         </div>
       )}

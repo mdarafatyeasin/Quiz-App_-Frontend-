@@ -9,6 +9,7 @@ import UploadQuestion from "../Dashboard/dashboard_components/UploadQuestion/Upl
 import CreateQuiz from "../Dashboard/dashboard_components/CreateQuiz/CreateQuiz";
 import Registration from "../Pages/Authentication/Registration/Registration";
 import Login from "../Pages/Authentication/Login/Login";
+import Profile from "../Pages/Profile/Profile";
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +36,12 @@ export const router = createBrowserRouter([
         path: "/play_quiz/:id",
         element: (
             <PlayQuiz />
+        ),
+      },
+      {
+        path: "/profile",
+        element: (
+            <Profile />
         ),
       },
     ],
