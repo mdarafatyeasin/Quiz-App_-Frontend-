@@ -1,16 +1,18 @@
 import { Outlet } from "react-router-dom";
 import SideBar from "../Shared/SideBar/SideBar";
-import Footer from '../Shared/Footer/Footer'
-import './Dashboard.css'
+import "./Dashboard.css";
+import Navbar from "../Shared/Navbar/Navbar";
 
 const Dashboard = () => {
   return (
     <div>
+      <Navbar />
       <div className="top">
         <SideBar></SideBar>
-        <Outlet></Outlet>
+        <div className="outlet">
+          <Outlet></Outlet>
+        </div>
       </div>
-        <Footer/>
     </div>
   );
 };

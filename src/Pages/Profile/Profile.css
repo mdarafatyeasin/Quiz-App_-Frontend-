@@ -1,6 +1,53 @@
 .profile-page{
     height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.profile-picture{
+    width: 150px;
+}
+
+.edit-button{
+    position: relative;
+    bottom: 27px;
+    left: 108px;
+}
+
+.edit-icon{
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border: 3px solid green;
+    padding: 4px;
+    border-radius: 50%;
+    font-size: 26px;
+}
+
+.username{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+}
+
+.show-profile{
+    border: 3px solid #73007b;
+    background-image: linear-gradient(to right, #73007b, #ae0575); 
+    color: white; 
+    background-color: transparent; 
+    transition: background-image 0.3s; 
+    padding: 5px 10px;
+    border-radius: 25px;
+    margin: 20px;
+}
+
+.logout-button{
+    background-color: rgb(255, 46, 46);
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    
 }

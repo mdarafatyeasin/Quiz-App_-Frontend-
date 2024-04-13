@@ -55,7 +55,7 @@ const PlayQuiz = () => {
       {currentQuestion && (
         <div>
           <h1 className="quentin-title">Python</h1>
-          <h2>Question {questionCount + 1}</h2>
+          <h2>Question {questionCount + 1} / {questions.length}</h2>
           <p className="question">{currentQuestion.question}</p>
           <div className="option-section">
             <input

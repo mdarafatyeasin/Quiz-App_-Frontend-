@@ -10,6 +10,8 @@ import CreateQuiz from "../Dashboard/dashboard_components/CreateQuiz/CreateQuiz"
 import Registration from "../Pages/Authentication/Registration/Registration";
 import Login from "../Pages/Authentication/Login/Login";
 import Profile from "../Pages/Profile/Profile";
+import UploadForm from "../Dashboard/dashboard_components/UploadQuestion/upload/UploadForm";
+import ViewQuestion from "../Dashboard/dashboard_components/UploadQuestion/view/ViewQuestion";
 
 export const router = createBrowserRouter([
   {
@@ -61,6 +63,14 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/upload_question",
         element: <UploadQuestion />,
+      },
+      {
+        path: "/dashboard/upload_question/:id",
+        element: <UploadForm />,
+      },
+      {
+        path: "/dashboard/upload_question/view/:id",
+        element: <ViewQuestion />,
       },
     ],
   },

@@ -1,4 +1,14 @@
 .top{
     display: flex;
-    align-items: center;
+    align-items: start;
+    background-image: url("../assets/bg.png");
+    background-size: cover;
+    background-position: center; 
+    background-attachment: fixed; 
+    padding-top: 75px;
+}
+
+.outlet{
+    padding-left: 13%;
+    margin: auto;
 }
