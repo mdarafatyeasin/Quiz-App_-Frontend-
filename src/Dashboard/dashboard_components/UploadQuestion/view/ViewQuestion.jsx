@@ -3,6 +3,10 @@ import "./ViewQuestion.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Loader from "../../../../Shared/Loader/Loader";
+// icons
+import { MdDeleteSweep } from "react-icons/md";
+import { FaEdit } from "react-icons/fa";
+import { RiAddCircleFill } from "react-icons/ri";
 
 const ViewQuestion = () => {
   const [questions, setQuestions] = useState([]);
@@ -27,6 +31,18 @@ const ViewQuestion = () => {
     fetchData();
   }, []);
 
+  const handleDeleteCard = async (id) => {
+    try {
+      await axios.delete(`http://127.0.0.1:8000/quiz/all_questions/${id}`);
+      setQuestions((prevState) =>
+        prevState.filter((question) => question.id !== id)
+      );
+      console.log("Quiz card deleted successfully");
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   if (questionLoader) {
     return <Loader />;
   }
@@ -34,8 +50,12 @@ const ViewQuestion = () => {
   return (
     <div className="view-question">
       <div className="question-title-dashboard">
-        <h1>question {id}</h1>
-        <Link to={`/dashboard/upload_question/${id}`}>Add More Questions</Link>
+        <h1>All Questions</h1>
+        <div>
+          <Link to={`/dashboard/upload_question/${id}`}>
+            <RiAddCircleFill className="mr-3 text-4xl text-yellow-400" />
+          </Link>
+        </div>
       </div>
       <div className="dashboard-question-section">
         {questions.map((question, index) => (
@@ -110,6 +130,55 @@ const ViewQuestion = () => {
                   {question.option4}
                 </label>
               </div>
+            </div>
+            <div className="flex items-center">
+              {/* ------------------------------------------- */}
+              <div>
+                <button
+                  className="bg-red-500 rounded px-3 py-1 text-white m-3"
+                  onClick={() =>
+                    document.getElementById("my_modal_3").showModal()
+                  }
+                >
+                  <MdDeleteSweep />
+                </button>
+                <dialog id="my_modal_3" className="modal">
+                  <div className="modal-box">
+                    <form method="dialog">
+                      {/* if there is a button in form, it will close the modal */}
+                      <button className="absolute right-4 top-3">✕</button>
+                    </form>
+                    <p className="py-4 text-center">
+                      Are you sure you want to delete this question?
+                    </p>
+                    <p className="text-center">
+                      <form method="dialog">
+                        {/* if there is a button in form, it will close the modal */}
+                        <button
+                          onClick={() => handleDeleteCard(question.id)}
+                          className=" bg-red-500 rounded px-3 py-1 text-white"
+                        >
+                          DELETE
+                        </button>
+                      </form>
+                    </p>
+                  </div>
+                </dialog>
+              </div>
+              {/* ------------------------------------------- */}
+              <div>
+                <button
+                  className="bg-green-600 rounded px-3 py-1 text-white m-3"
+                  onClick={() =>
+                    document.getElementById("my_modal_3").showModal()
+                  }
+                >
+                  <FaEdit />
+                </button>
+              </div>
+              <Link to={`/dashboard/upload_question/${id}`}>
+                <RiAddCircleFill className="text-3xl text-yellow-400 ml-2" />
+              </Link>
             </div>
             <hr />
           </div>

@@ -68,11 +68,6 @@ const UploadQuestion = () => {
               >
                 VIEW
               </Link>
-              <Link to={`/dashboard/upload_question/${card.id}`}
-                className="question-button"
-              >
-                QUESTIONS
-              </Link>
             </div>
           </div>
         ))}

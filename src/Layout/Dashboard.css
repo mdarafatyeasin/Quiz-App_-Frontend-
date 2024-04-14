@@ -1,6 +1,6 @@
 .top{
     display: flex;
-    align-items: start;
+    /* align-items: start; */
     background-image: url("../assets/bg.png");
     background-size: cover;
     background-position: center; 
