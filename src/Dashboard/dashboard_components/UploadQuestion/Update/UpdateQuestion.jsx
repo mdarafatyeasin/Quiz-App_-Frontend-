@@ -3,6 +3,7 @@ import "./UpdateQuestion.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Loader from "../../../../Shared/Loader/Loader";
+import toast, { Toaster } from "react-hot-toast";
 
 const UpdateQuestion = () => {
   const { id } = useParams();
@@ -86,6 +87,7 @@ const UpdateQuestion = () => {
 
   return (
     <div id="upload-form">
+      <div><Toaster/></div>
       <div className="upload-form">
         <div className="upload-question-form">
           <h1>Edit Form</h1>

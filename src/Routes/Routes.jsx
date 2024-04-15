@@ -15,6 +15,7 @@ import ViewQuestion from "../Dashboard/dashboard_components/UploadQuestion/view/
 import UpdateQuestion from "../Dashboard/dashboard_components/UploadQuestion/Update/UpdateQuestion";
 import DashboardChart from "../Dashboard/dashboard_components/DashboardChart/DashboardChart";
 import LoginRequaired from "./ProtectedRoute/LoginRequaired";
+import AdminRequaired from "./ProtectedRoute/AdminRequaired";
 
 export const router = createBrowserRouter([
   {
@@ -57,27 +58,63 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/user_dashboard",
-        element: <UserDashboard />,
+        element: (
+          <LoginRequaired>
+            <AdminRequaired>
+              <UserDashboard />
+            </AdminRequaired>
+          </LoginRequaired>
+        ),
       },
       {
         path: "/dashboard/create_quiz",
-        element: <CreateQuiz />,
+        element: (
+          <LoginRequaired>
+            <AdminRequaired>
+              <CreateQuiz />
+            </AdminRequaired>
+          </LoginRequaired>
+        ),
       },
       {
         path: "/dashboard/upload_question",
-        element: <UploadQuestion />,
+        element: (
+          <LoginRequaired>
+            <AdminRequaired>
+              <UploadQuestion />
+            </AdminRequaired>
+          </LoginRequaired>
+        ),
       },
       {
         path: "/dashboard/upload_question/:id",
-        element: <UploadForm />,
+        element: (
+          <LoginRequaired>
+            <AdminRequaired>
+              <UploadForm />
+            </AdminRequaired>
+          </LoginRequaired>
+        ),
       },
       {
         path: "/dashboard/upload_question/view/:id",
-        element: <ViewQuestion />,
+        element: (
+          <LoginRequaired>
+            <AdminRequaired>
+              <ViewQuestion />
+            </AdminRequaired>
+          </LoginRequaired>
+        ),
       },
       {
         path: "/dashboard/upload_question/question/edit/:id",
-        element: <UpdateQuestion />,
+        element: (
+          <LoginRequaired>
+            <AdminRequaired>
+              <UpdateQuestion />
+            </AdminRequaired>
+          </LoginRequaired>
+        ),
       },
     ],
   },

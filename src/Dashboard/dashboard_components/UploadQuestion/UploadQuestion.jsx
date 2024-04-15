@@ -2,22 +2,13 @@ import "./UploadQuestion.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Loader from '../../../Shared/Loader/Loader'
-import { Link, useNavigate } from "react-router-dom";
-import useUser from "../../../Hooks/useUser";
-import useAdmin from "../../../Hooks/useAdmin";
+import { Link } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 
 const UploadQuestion = () => {
   const [quizCardData, setQuizCardData] = useState([]);
   const [ cardLoading, setCardLoading ] = useState(false)
-
-  // auth---------------------------------------------------------------start
-  const { user, loading: userLoading } = useUser();
-  const { admin, loading: adminLoading } = useAdmin();
-  const navigate = useNavigate();
-  // auth---------------------------------------------------------------end
-
- 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,25 +28,6 @@ const UploadQuestion = () => {
   }, []);
 
 
-  // auth---------------------------------------------------------------start
-   // Check if either user or admin is still loading
-   if (userLoading || adminLoading) {
-    return <Loader />;
-  }
-
-  // Check if either user or admin request resulted in an error
-  if (user?.status === "error" || admin?.status === "error") {
-    navigate("/login");
-    return null; // Prevent further rendering
-  }
-
-  // Check if user is not logged in or not an admin
-  if (!user || !admin || admin.role !== "admin") {
-    navigate("/login");
-    return null; // Prevent further rendering
-  }
-  // auth---------------------------------------------------------------end
-
   const handleDeleteCard = async (id) => {
     try {
       const confirmed = window.confirm("Are you sure you want to delete this quiz card?");
@@ -64,12 +36,13 @@ const UploadQuestion = () => {
         setQuizCardData((prevState) =>
           prevState.filter((card) => card.id !== id)
         );
-        console.log("Quiz card deleted successfully");
+        toast.success('Successfully toasted!')
       } else {
         console.log("Deletion cancelled by user");
       }
     } catch (error) {
       console.error("Error:", error);
+      toast.error("Failed to delete", error)
     }
   };
   
@@ -79,6 +52,7 @@ const UploadQuestion = () => {
 
   return (
     <div className="quizCard-dashboard-section">
+      <div><Toaster/></div>
       <h2>Upload Question</h2>
       <div className="quizCard-dashboard">
         {quizCardData.map((card) => (

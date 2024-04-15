@@ -1,35 +1,8 @@
 import axios from "axios";
 import "./CreateQuiz.css";
-import Loader from "../../../Shared/Loader/Loader";
-import { useNavigate } from "react-router-dom";
-import useUser from "../../../Hooks/useUser";
-import useAdmin from "../../../Hooks/useAdmin";
+import toast, { Toaster } from "react-hot-toast";
 
 const CreateQuiz = () => {
-
-  // auth---------------------------------------------------------------start
-  const { user, loading: userLoading } = useUser();
-  const { admin, loading: adminLoading } = useAdmin();
-  const navigate = useNavigate();
-
-  // Check if either user or admin is still loading
-  if (userLoading || adminLoading) {
-    return <Loader />;
-  }
-
-  // Check if either user or admin request resulted in an error
-  if (user?.status === "error" || admin?.status === "error") {
-    navigate("/login");
-    return null; // Prevent further rendering
-  }
-
-  // Check if user is not logged in or not an admin
-  if (!user || !admin || admin.role !== "admin") {
-    navigate("/login");
-    return null; // Prevent further rendering
-  }
-  // auth---------------------------------------------------------------end
-
 
   const handleQuizCard = async (event) => {
     event.preventDefault();
@@ -54,7 +27,7 @@ const CreateQuiz = () => {
       if (response.status === 201) {
         // Clear the form
         form.reset();
-        console.log("Form submitted successfully!");
+        toast.success('Successfully toasted!')
       } else {
         console.log("Failed to submit form");
       }
@@ -65,6 +38,7 @@ const CreateQuiz = () => {
 
   return (
     <div className="create-quiz-container">
+      <div><Toaster/></div>
       <h2>Create Quiz</h2>
       
       <form onSubmit={handleQuizCard} className="create-quiz-form">

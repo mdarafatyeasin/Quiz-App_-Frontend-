@@ -1,21 +1,16 @@
-import { Route, Navigate } from 'react-router-dom';
-import useUser from '../../Hooks/useUser';
+import { Navigate } from "react-router-dom";
+import useUser from "../../Hooks/useUser";
+import Loader from "../../Shared/Loader/Loader";
 
-const LoginRequaired = ({ element, ...rest }) => {
-  const { user, loading } = useUser();
-
-  if (loading) {
-    // Loading state, show loading indicator or placeholder
-    return null;
-  }
-
-  if (!user) {
-    // User is not logged in, redirect to login page
-    return <Navigate to="/login" />;
-  }
-
-  // User is authenticated, render the protected component
-  return <Route {...rest} element={element} />;
+const LoginRequaired = ({children}) => {
+    const {user, loading} = useUser();
+    if(loading){
+        return <Loader/>
+    }
+    if(user){
+        return children
+    }
+    return <Navigate to="/login"></Navigate>
 };
 
 export default LoginRequaired;
