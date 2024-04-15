@@ -12,6 +12,9 @@ import Login from "../Pages/Authentication/Login/Login";
 import Profile from "../Pages/Profile/Profile";
 import UploadForm from "../Dashboard/dashboard_components/UploadQuestion/upload/UploadForm";
 import ViewQuestion from "../Dashboard/dashboard_components/UploadQuestion/view/ViewQuestion";
+import UpdateQuestion from "../Dashboard/dashboard_components/UploadQuestion/Update/UpdateQuestion";
+import DashboardChart from "../Dashboard/dashboard_components/DashboardChart/DashboardChart";
+import LoginRequaired from "./ProtectedRoute/LoginRequaired";
 
 export const router = createBrowserRouter([
   {
@@ -36,15 +39,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/play_quiz/:id",
-        element: (
-            <PlayQuiz />
-        ),
+        element: <PlayQuiz />,
       },
       {
         path: "/profile",
-        element: (
-            <Profile />
-        ),
+        element: <Profile />,
       },
     ],
   },
@@ -52,6 +51,10 @@ export const router = createBrowserRouter([
     path: "/dashboard",
     element: <Dashboard></Dashboard>,
     children: [
+      {
+        path: "/dashboard",
+        element: <DashboardChart />,
+      },
       {
         path: "/dashboard/user_dashboard",
         element: <UserDashboard />,
@@ -71,6 +74,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/upload_question/view/:id",
         element: <ViewQuestion />,
+      },
+      {
+        path: "/dashboard/upload_question/question/edit/:id",
+        element: <UpdateQuestion />,
       },
     ],
   },

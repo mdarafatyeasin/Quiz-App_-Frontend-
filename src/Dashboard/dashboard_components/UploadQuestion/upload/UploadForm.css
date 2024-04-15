@@ -1,12 +1,14 @@
 /* UploadForm.css */
 #upload-form{
     min-height: 100vh;
+    width: 100%;
+    margin: auto;
 }
 
 .upload-form {
     display: flex;
-    /* justify-content: start;
-    align-items: start; */
+    justify-content: center;
+    /* align-items: start; */
     margin-top: 40px;
     /* min-height: 100vh; */
 }

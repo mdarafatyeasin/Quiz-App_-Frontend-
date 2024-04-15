@@ -5,13 +5,13 @@ import axios from "axios";
 import Loader from "../../../../Shared/Loader/Loader";
 // icons
 import { MdDeleteSweep } from "react-icons/md";
-import { FaEdit } from "react-icons/fa";
 import { RiAddCircleFill } from "react-icons/ri";
+import { BiSolidMessageSquareEdit } from "react-icons/bi";
 
 const ViewQuestion = () => {
+  
   const [questions, setQuestions] = useState([]);
   const [questionLoader, setQuestionLoader] = useState(false);
-
   const { id } = useParams();
 
   useEffect(() => {
@@ -132,7 +132,7 @@ const ViewQuestion = () => {
               </div>
             </div>
             <div className="flex items-center">
-              {/* ------------------------------------------- */}
+              {/* ----------------------Delete Question--------------------- */}
               <div>
                 <button
                   className="bg-red-500 rounded px-3 py-1 text-white m-3"
@@ -165,17 +165,15 @@ const ViewQuestion = () => {
                   </div>
                 </dialog>
               </div>
-              {/* ------------------------------------------- */}
+              {/* -----------------------Edit button-------------------- */}
               <div>
-                <button
-                  className="bg-green-600 rounded px-3 py-1 text-white m-3"
-                  onClick={() =>
-                    document.getElementById("my_modal_3").showModal()
-                  }
+                <Link
+                  to={`/dashboard/upload_question/question/edit/${question.id}`}
                 >
-                  <FaEdit />
-                </button>
+                  <BiSolidMessageSquareEdit className="text-3xl text-green-600 ml-2 rounded" />
+                </Link>
               </div>
+              {/* ---------------------Add question button---------------------- */}
               <Link to={`/dashboard/upload_question/${id}`}>
                 <RiAddCircleFill className="text-3xl text-yellow-400 ml-2" />
               </Link>
