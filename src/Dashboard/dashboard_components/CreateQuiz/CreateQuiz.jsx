@@ -1,6 +1,6 @@
 import axios from "axios";
 import "./CreateQuiz.css";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const CreateQuiz = () => {
 
@@ -27,7 +27,7 @@ const CreateQuiz = () => {
       if (response.status === 201) {
         // Clear the form
         form.reset();
-        toast.success('Successfully toasted!')
+        toast.success('Quiz created successfully!')
       } else {
         console.log("Failed to submit form");
       }
@@ -38,7 +38,6 @@ const CreateQuiz = () => {
 
   return (
     <div className="create-quiz-container">
-      <div><Toaster/></div>
       <h2>Create Quiz</h2>
       
       <form onSubmit={handleQuizCard} className="create-quiz-form">

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Loader from "../../../../Shared/Loader/Loader";
 import "./UploadForm.css";
+import toast from "react-hot-toast";
 
 const UploadForm = () => {
     const { id } = useParams();
@@ -44,13 +45,15 @@ const UploadForm = () => {
             if (response.status === 201) {
                 // Clear the form
                 form.reset();
+                toast.success("Question added successfully!")
                 console.log("Question added successfully!");
                 setUploadLoader(false);
             } else {
                 console.log("Failed to submit question");
+                toast.error("Failed to submit question")
             }
         } catch (error) {
-            console.log(error);
+            toast.error(error)
         }
     };
 

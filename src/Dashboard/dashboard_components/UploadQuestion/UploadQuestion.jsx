@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Loader from '../../../Shared/Loader/Loader'
 import { Link } from "react-router-dom";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 
 const UploadQuestion = () => {
@@ -36,7 +36,7 @@ const UploadQuestion = () => {
         setQuizCardData((prevState) =>
           prevState.filter((card) => card.id !== id)
         );
-        toast.success('Successfully toasted!')
+        toast.success('Question delete successfully!')
       } else {
         console.log("Deletion cancelled by user");
       }
@@ -52,7 +52,6 @@ const UploadQuestion = () => {
 
   return (
     <div className="quizCard-dashboard-section">
-      <div><Toaster/></div>
       <h2>Upload Question</h2>
       <div className="quizCard-dashboard">
         {quizCardData.map((card) => (

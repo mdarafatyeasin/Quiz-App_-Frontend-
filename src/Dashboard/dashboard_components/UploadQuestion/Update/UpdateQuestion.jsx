@@ -3,7 +3,7 @@ import "./UpdateQuestion.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Loader from "../../../../Shared/Loader/Loader";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const UpdateQuestion = () => {
   const { id } = useParams();
@@ -62,6 +62,7 @@ const UpdateQuestion = () => {
         question_level: question_level,
       });
       console.log("Question updated successfully!");
+      toast.success('Question updated successfully!')
       usenavigete(`/dashboard/upload_question/view/${quizCard}`)
       // Add any additional logic here after successful update
     } catch (error) {
@@ -87,7 +88,6 @@ const UpdateQuestion = () => {
 
   return (
     <div id="upload-form">
-      <div><Toaster/></div>
       <div className="upload-form">
         <div className="upload-question-form">
           <h1>Edit Form</h1>

@@ -16,6 +16,7 @@ import UpdateQuestion from "../Dashboard/dashboard_components/UploadQuestion/Upd
 import DashboardChart from "../Dashboard/dashboard_components/DashboardChart/DashboardChart";
 import LoginRequaired from "./ProtectedRoute/LoginRequaired";
 import AdminRequaired from "./ProtectedRoute/AdminRequaired";
+import NotFound from "../Shared/NotFound/NotFound";
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "",
+        element: <Home />,
+      },
+      {
+        path: "/home",
         element: <Home />,
       },
       {
@@ -45,6 +50,10 @@ export const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
       },
     ],
   },

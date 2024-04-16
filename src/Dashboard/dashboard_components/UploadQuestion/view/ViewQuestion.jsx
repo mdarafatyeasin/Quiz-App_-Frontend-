@@ -7,9 +7,9 @@ import Loader from "../../../../Shared/Loader/Loader";
 import { MdDeleteSweep } from "react-icons/md";
 import { RiAddCircleFill } from "react-icons/ri";
 import { BiSolidMessageSquareEdit } from "react-icons/bi";
+import toast from "react-hot-toast";
 
 const ViewQuestion = () => {
-  
   const [questions, setQuestions] = useState([]);
   const [questionLoader, setQuestionLoader] = useState(false);
   const { id } = useParams();
@@ -33,14 +33,22 @@ const ViewQuestion = () => {
 
   const handleDeleteCard = async (id) => {
     try {
-      await axios.delete(`http://127.0.0.1:8000/quiz/all_questions/${id}`);
-      setQuestions((prevState) =>
-        prevState.filter((question) => question.id !== id)
+      const confirmed = window.confirm(
+        "Are you sure you want to delete this question?"
       );
-      console.log("Quiz card deleted successfully");
+      if (confirmed) {
+        await axios.delete(`http://127.0.0.1:8000/quiz/all_questions/${id}`);
+        setQuestions((prevState) =>
+          prevState.filter((question) => question.id !== id)
+        );
+        toast.success("Quiz card deleted successfully");
+        console.log("Quiz card deleted successfully");
+      }
     } catch (error) {
       console.error("Error:", error);
+      toast.error(error);
     }
+    console.log(id);
   };
 
   if (questionLoader) {
@@ -131,39 +139,15 @@ const ViewQuestion = () => {
                 </label>
               </div>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center question-actin-section">
               {/* ----------------------Delete Question--------------------- */}
               <div>
                 <button
-                  className="bg-red-500 rounded px-3 py-1 text-white m-3"
-                  onClick={() =>
-                    document.getElementById("my_modal_3").showModal()
-                  }
+                  onClick={() => handleDeleteCard(question.id)}
+                  className=" bg-red-500 rounded px-3 py-1 text-white"
                 >
                   <MdDeleteSweep />
                 </button>
-                <dialog id="my_modal_3" className="modal">
-                  <div className="modal-box">
-                    <form method="dialog">
-                      {/* if there is a button in form, it will close the modal */}
-                      <button className="absolute right-4 top-3">✕</button>
-                    </form>
-                    <p className="py-4 text-center">
-                      Are you sure you want to delete this question?
-                    </p>
-                    <p className="text-center">
-                      <form method="dialog">
-                        {/* if there is a button in form, it will close the modal */}
-                        <button
-                          onClick={() => handleDeleteCard(question.id)}
-                          className=" bg-red-500 rounded px-3 py-1 text-white"
-                        >
-                          DELETE
-                        </button>
-                      </form>
-                    </p>
-                  </div>
-                </dialog>
               </div>
               {/* -----------------------Edit button-------------------- */}
               <div>

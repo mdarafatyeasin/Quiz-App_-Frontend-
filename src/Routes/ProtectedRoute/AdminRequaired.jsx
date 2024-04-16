@@ -13,7 +13,7 @@ const AdminRequaired = ({children}) => {
     if(admin){
         return children
     }
-    return <Navigate to="/login"></Navigate>
+    return <Navigate to="*"></Navigate>
 };
 
 export default AdminRequaired;

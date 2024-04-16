@@ -16,7 +16,7 @@ const Navbar = () => {
         className={isMobile ? "nav-links" : "nav-links-mobile"}
       >
         <li>
-          <NavLink to="">Home</NavLink>
+          <NavLink to="/home">Home</NavLink>
         </li>
         <li>
           <Link to="/play_quiz">Quiz</Link>
