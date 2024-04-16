@@ -4,9 +4,19 @@ import { useState } from "react";
 // icons
 import { IoMenu } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
+import useAdmin from "../../Hooks/useAdmin";
+import Loader from "../Loader/Loader";
+import useUser from "../../Hooks/useUser";
 
 const Navbar = () => {
   const [isMobile, setisMobile] = useState(true);
+  const { admin, adminLoading } = useAdmin();
+  const { user, loading } = useUser();
+  console.log(admin);
+
+  if (adminLoading || loading) {
+    return <Loader />;
+  }
 
   return (
     <nav className="navbar">
@@ -21,18 +31,10 @@ const Navbar = () => {
         <li>
           <Link to="/play_quiz">Quiz</Link>
         </li>
-        <li>
-          <Link to="/dashboard">Dashboard</Link>
-        </li>
-        <li>
-          <NavLink to="/login">Login</NavLink>
-        </li>
-        <li>
-          <NavLink to="/registration">Register</NavLink>
-        </li>
-        <li>
-          <NavLink to="/profile">Profile</NavLink>
-        </li>
+        <li>{admin ? <Link to="/dashboard">Dashboard</Link> : ""}</li>
+        <li>{user ? "" : <NavLink to="/login">Login</NavLink>}</li>
+        <li>{user ? "" : <NavLink to="/registration">Register</NavLink>}</li>
+        <li>{user ? <NavLink to="/profile">Profile</NavLink> : " "}</li>
       </ul>
       <button
         className="mobile-menu-icon"
