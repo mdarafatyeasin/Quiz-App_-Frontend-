@@ -37,3 +37,24 @@
     font-size: 18px;
     line-height: 1.6;
 }
+
+
+/* ----------------------- responsive ----------------------- */
+
+/* Desktop */
+@media only screen and (max-width: 992px){
+    .about-content{
+        width: 80%;
+        margin: 100px auto 0 auto;
+    }
+}
+
+/* Tab */
+@media only screen and (max-width: 768px){
+
+}
+
+/* Mobile */
+@media only screen and (max-width: 480px){
+
+}
