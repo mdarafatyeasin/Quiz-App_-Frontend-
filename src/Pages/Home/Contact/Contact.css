@@ -50,3 +50,23 @@
     /* Semi-transparent and lighter border */
     background-color: rgba(44, 100, 132, 0.2);
 }
+
+
+/* ----------------------- responsive ----------------------- */
+
+/* Desktop */
+@media only screen and (max-width: 992px){
+
+}
+
+/* Tab */
+@media only screen and (max-width: 768px){
+
+}
+
+/* Mobile */
+@media only screen and (max-width: 480px){
+    .contact-content{
+        grid-template-columns: 1fr;
+    }
+}

@@ -13,7 +13,7 @@
 }
 
 .question {
-    font-size: 25px;
+    font-size: 1.5rem;
     font-weight: 700;
     color: white;
 }
@@ -57,7 +57,6 @@
 
 .win-cup div{
     height: 200px;
-
 }
 
 .result-card {
@@ -110,5 +109,33 @@
 }
 
 
+/* ----------------------- responsive ----------------------- */
+
+/* Desktop */
+@media only screen and (max-width: 992px){
+    .quiz-page{
+        width: 70%;
+    }
+    .win-cup{
+        padding-bottom: 40px;
+    }
+}
+
+/* Tab */
+@media only screen and (max-width: 768px){
+    .quiz-page{
+        width: 80%;
+    }
+    .result-card{
+        width: 70%;
+    }
+}
+
+/* Mobile */
+@media only screen and (max-width: 480px){
+    .result-card{
+        width: 100%;
+    }
+}
 
 

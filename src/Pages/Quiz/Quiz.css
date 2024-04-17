@@ -17,3 +17,33 @@
     font-weight: 700;
     padding: 20px 0 40px 0;
 }
+
+/* ----------------------- responsive ----------------------- */
+
+/* Desktop */
+@media only screen and (max-width: 992px){
+    .quiz-section{
+        width: 80%;
+    }
+    .all-card{
+        grid-template-columns: 1fr 1fr;
+    }
+    
+}
+
+/* Tab */
+@media only screen and (max-width: 768px){
+    .quiz-section{
+        width: 90%;
+    }
+    .all-card{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Mobile */
+@media only screen and (max-width: 480px){
+    .all-card{
+        grid-template-columns: 1fr;
+    }
+}
