@@ -4,7 +4,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    padding-top: 95px;
+    padding-bottom: 65px;
+    /* height: 80vh; */
 }
 
 .banner {
@@ -46,23 +48,32 @@
     margin-right: 10px;
     cursor: pointer;
     border-radius: 50px;
-    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition effect */
+    transition: background-color 0.3s, border-color 0.3s;
+    /* Smooth transition effect */
 }
 
-.play-now{
+.play-now {
     border: 3px solid #73007b;
-    background-image: linear-gradient(to right, #73007b, #ae0575); /* Adjust the colors as needed */
-    color: white; /* Text color */
-    background-color: transparent; /* Fallback for older browsers */
-    transition: background-image 0.3s; /* Smooth transition effect */
+    background-image: linear-gradient(to right, #73007b, #ae0575);
+    /* Adjust the colors as needed */
+    color: white;
+    /* Text color */
+    background-color: transparent;
+    /* Fallback for older browsers */
+    transition: background-image 0.3s;
+    /* Smooth transition effect */
 }
 
-.premium-button{
+.premium-button {
     border: 3px solid #73007b;
-    background-image: linear-gradient(to right, #73007b, #35004c); /* Adjust the colors as needed */
-    color: white; /* Text color */
-    background-color: transparent; /* Fallback for older browsers */
-    transition: background-image 0.3s; /* Smooth transition effect */
+    background-image: linear-gradient(to right, #73007b, #35004c);
+    /* Adjust the colors as needed */
+    color: white;
+    /* Text color */
+    background-color: transparent;
+    /* Fallback for older browsers */
+    transition: background-image 0.3s;
+    /* Smooth transition effect */
 }
 
 .banner-text button:hover {
@@ -78,3 +89,37 @@
     width: 100%;
 }
 
+
+/* responsive */
+
+/* ----------------------- responsive ----------------------- */
+
+/* Desktop */
+@media only screen and (max-width: 992px){
+    .banner-text h1{
+        font-size: 1.8rem;
+    }
+}
+
+/* Tab */
+@media only screen and (max-width: 768px){
+    .banner-text h1{
+        font-size: 2rem;
+    }
+    .banner{
+        display: block;
+    }
+}
+
+/* Mobile */
+@media only screen and (max-width: 480px){
+    .banner-text h1{
+        font-size: 2rem;
+    }
+    .banner{
+        display: block;
+    }
+    .banner-text p{
+        font-size: 12px;
+    }
+}

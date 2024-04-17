@@ -51,7 +51,7 @@ const Registration = () => {
       })
       .then((data) => {
         console.log("Data received:", data);
-        setRegistrationSuccess(true);
+        setRegistrationSuccess(false);
       })
       .catch((error) => console.error("Error:", error));
   };

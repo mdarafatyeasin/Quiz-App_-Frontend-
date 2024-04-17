@@ -17,6 +17,8 @@ import DashboardChart from "../Dashboard/dashboard_components/DashboardChart/Das
 import LoginRequaired from "./ProtectedRoute/LoginRequaired";
 import AdminRequaired from "./ProtectedRoute/AdminRequaired";
 import NotFound from "../Shared/NotFound/NotFound";
+import ForgotPass from "../Pages/Authentication/ForgotPass/ForgotPass";
+import ResetPass from "../Pages/Authentication/ResetPass/ResetPass";
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +40,14 @@ export const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/login/forgot_password",
+        element: <ForgotPass />,
+      },
+      {
+        path: "/login/forgot_password/reset_password/:uidb64/:token",
+        element: <ResetPass />,
       },
       {
         path: "/play_quiz",

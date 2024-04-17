@@ -1,7 +1,7 @@
 .sponsor-section{
     width: 100%;
     max-width: 1200px;
-    margin: -80px auto 0;
+    margin: auto;
 }
 
 .sponsor-content{
@@ -41,4 +41,22 @@
 
 .sponsor-icon img{
     width: 50px;
+}
+
+
+
+@media only screen and (max-width: 808px) {
+    .sponsor-logo{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+    }
+}
+
+
+@media only screen and (max-width: 540px) {
+    .sponsor-logo{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }

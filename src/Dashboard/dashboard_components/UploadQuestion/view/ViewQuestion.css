@@ -31,8 +31,8 @@
 
 .question-text {
     display: flex;
-    align-items: start;
-    justify-content: start;
+    /* align-items: start; */
+    /* justify-content: start; */
 }
 
 .question-title-dashboard{
