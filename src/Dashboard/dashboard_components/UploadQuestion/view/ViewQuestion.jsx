@@ -21,7 +21,7 @@ const ViewQuestion = () => {
         const response = await axios.get(
           `http://127.0.0.1:8000/quiz/card_question/${id}`
         );
-        console.log(response.data);
+        // console.log(response.data);
         setQuestions(response.data);
         setQuestionLoader(false);
       } catch (error) {
@@ -42,13 +42,13 @@ const ViewQuestion = () => {
           prevState.filter((question) => question.id !== id)
         );
         toast.success("Quiz card deleted successfully");
-        console.log("Quiz card deleted successfully");
+        // console.log("Quiz card deleted successfully");
       }
     } catch (error) {
       console.error("Error:", error);
       toast.error(error);
     }
-    console.log(id);
+    // console.log(id);
   };
 
   if (questionLoader) {

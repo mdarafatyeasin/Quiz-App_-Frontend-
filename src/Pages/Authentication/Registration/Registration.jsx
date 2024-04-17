@@ -50,7 +50,7 @@ const Registration = () => {
         return response.json();
       })
       .then((data) => {
-        console.log("Data received:", data);
+        // console.log("Data received:", data);
         setRegistrationSuccess(false);
       })
       .catch((error) => console.error("Error:", error));

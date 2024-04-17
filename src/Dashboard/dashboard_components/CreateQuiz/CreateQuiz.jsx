@@ -29,10 +29,10 @@ const CreateQuiz = () => {
         form.reset();
         toast.success('Quiz created successfully!')
       } else {
-        console.log("Failed to submit form");
+        // console.log("Failed to submit form");
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 

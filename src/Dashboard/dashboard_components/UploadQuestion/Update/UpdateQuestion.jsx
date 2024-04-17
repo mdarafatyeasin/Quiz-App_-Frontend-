@@ -61,7 +61,7 @@ const UpdateQuestion = () => {
         question_category: question_category,
         question_level: question_level,
       });
-      console.log("Question updated successfully!");
+      // console.log("Question updated successfully!");
       toast.success('Question updated successfully!')
       usenavigete(`/dashboard/upload_question/view/${quizCard}`)
       // Add any additional logic here after successful update

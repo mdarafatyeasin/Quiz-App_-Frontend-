@@ -17,11 +17,11 @@ const UploadQuestion = () => {
         const response = await axios.get(
           "http://127.0.0.1:8000/quiz/quiz_card/"
         );
-        console.log(response.data);
+        // console.log(response.data);
         setQuizCardData(response.data);
         setCardLoading(false)
       } catch (error) {
-        console.error("Error:", error);
+        // console.error("Error:", error);
       }
     };
     fetchData();
@@ -38,10 +38,10 @@ const UploadQuestion = () => {
         );
         toast.success('Question delete successfully!')
       } else {
-        console.log("Deletion cancelled by user");
+        // console.log("Deletion cancelled by user");
       }
     } catch (error) {
-      console.error("Error:", error);
+      // console.error("Error:", error);
       toast.error("Failed to delete", error)
     }
   };

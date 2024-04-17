@@ -31,13 +31,13 @@ const ResetPass = () => {
           requestBody
         );
         if (response.status === 200) {
-          console.log(response);
+          // console.log(response);
           form.reset();
           setLoading(false)
           toast.success("Password change successfully!");
         } else {
           toast.error("Failed to submit the form");
-          console.log("Failed to submit form");
+          // console.log("Failed to submit form");
           setLoading(false)
           setError("The token is not validate");
         }
@@ -57,7 +57,7 @@ const ResetPass = () => {
     return <Loader/>
   }
 
-  console.log(user_token);
+  // console.log(user_token);
 
   return (
     <div className="forgotPass-page">

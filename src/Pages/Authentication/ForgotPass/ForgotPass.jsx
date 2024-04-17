@@ -26,7 +26,7 @@ const ForgotPass = () => {
         "http://127.0.0.1:8000/password/forgot-password/",
         requestBody
       );
-      console.log(response);
+      // console.log(response);
       if (response.status === 200) {
         // Clear the form
         form.reset();
@@ -34,7 +34,7 @@ const ForgotPass = () => {
         toast.success("Please check your email");
         <Navigate to={"/login/forgot_password/reset_password"} />
       } else {
-        console.log("Failed to submit form");
+        // console.log("Failed to submit form");
       }
     } catch (error) {
       setLoading(false)

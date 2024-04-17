@@ -12,7 +12,7 @@ const Navbar = () => {
   const [isMobile, setisMobile] = useState(true);
   const { admin, adminLoading } = useAdmin();
   const { user, loading } = useUser();
-  console.log(admin);
+  // console.log(admin);
 
   if (adminLoading || loading) {
     return <Loader />;

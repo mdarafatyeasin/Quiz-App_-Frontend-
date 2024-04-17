@@ -46,10 +46,10 @@ const UploadForm = () => {
                 // Clear the form
                 form.reset();
                 toast.success("Question added successfully!")
-                console.log("Question added successfully!");
+                // console.log("Question added successfully!");
                 setUploadLoader(false);
             } else {
-                console.log("Failed to submit question");
+                // console.log("Failed to submit question");
                 toast.error("Failed to submit question")
             }
         } catch (error) {

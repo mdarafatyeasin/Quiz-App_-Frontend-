@@ -6,7 +6,7 @@ import useAdmin from "../../Hooks/useAdmin";
 
 const AdminRequaired = ({children}) => {
     const { admin, adminLoading } = useAdmin();
-    console.log(admin)
+    // console.log(admin)
     if(adminLoading){
         return <Loader/>
     }

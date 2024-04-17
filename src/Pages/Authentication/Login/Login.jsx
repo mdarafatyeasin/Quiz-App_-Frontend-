@@ -42,14 +42,14 @@ const Login = () => {
         return response.json();
       })
       .then((data) => {
-        console.log("Data received:", data);
+        // console.log("Data received:", data);
         setError(data.error)
         localStorage.setItem("token", data.token, "id", data.user.id);
         localStorage.setItem("id", data.user.id);
         localStorage.setItem("username", data.user.username);
-        window.location.reload();
         setLoading(false);
-        usenavigete("/");
+        usenavigete("/home");
+        window.location.reload();
       })
       .catch((error) => {
         setLoading(false);
