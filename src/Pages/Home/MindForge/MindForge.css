@@ -96,16 +96,31 @@
 /* ----------------------- responsive ----------------------- */
 
 /* Desktop */
-@media only screen and (min-width: 992px){
-
+@media only screen and (max-width: 992px){
+    .mindforge-button{
+        width: 80%;
+    }
 }
 
 /* Tab */
-@media only screen and (min-width: 768px){
-
+@media only screen and (max-width: 768px){
+    .MindForge-content{
+        display: block;
+        width: 100%;
+    }
+    .specialty{
+        margin: auto;
+        width: 60%;
+        padding-bottom: 40px;
+    }
+    .specialty-title{
+        width: 80%;
+        margin: auto;
+        padding: 0;
+    }
 }
 
 /* Mobile */
-@media only screen and (min-width: 480px){
+@media only screen and (max-width: 480px){
 
 }
