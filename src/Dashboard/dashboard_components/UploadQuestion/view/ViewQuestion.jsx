@@ -19,7 +19,7 @@ const ViewQuestion = () => {
       setQuestionLoader(true);
       try {
         const response = await axios.get(
-          `http://127.0.0.1:8000/quiz/card_question/${id}`
+          `https://quiz-app-backend-ybe6.onrender.com/quiz/card_question/${id}`
         );
         // console.log(response.data);
         setQuestions(response.data);
@@ -37,7 +37,7 @@ const ViewQuestion = () => {
         "Are you sure you want to delete this question?"
       );
       if (confirmed) {
-        await axios.delete(`http://127.0.0.1:8000/quiz/all_questions/${id}`);
+        await axios.delete(`https://quiz-app-backend-ybe6.onrender.com/quiz/all_questions/${id}`);
         setQuestions((prevState) =>
           prevState.filter((question) => question.id !== id)
         );

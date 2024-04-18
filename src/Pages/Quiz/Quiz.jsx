@@ -12,7 +12,7 @@ const Quiz = () => {
   // console.log(user)
 
   useEffect(() => {
-    const url = "http://127.0.0.1:8000/quiz/quiz_card/";
+    const url = "https://quiz-app-backend-ybe6.onrender.com/quiz/quiz_card/";
     fetch(url)
       .then((res) => res.json())
       .then((data) => {

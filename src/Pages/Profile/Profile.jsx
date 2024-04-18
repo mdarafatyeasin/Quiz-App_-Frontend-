@@ -16,7 +16,7 @@ const Profile = () => {
   const userTOKEN = localStorage.getItem("token");
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/profile/${userID}/${userTOKEN}`)
+    fetch(`https://quiz-app-backend-ybe6.onrender.com/profile/${userID}/${userTOKEN}`)
       .then((res) => res.json())
       .then((data) => setUserData(data));
   }, []);
@@ -26,7 +26,7 @@ const Profile = () => {
     const id = localStorage.getItem("id");
     const token = localStorage.getItem("token");
 
-    const url = `http://127.0.0.1:8000/auth/logout/${id}/${token}`;
+    const url = `https://quiz-app-backend-ybe6.onrender.com/auth/logout/${id}/${token}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {

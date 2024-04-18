@@ -8,7 +8,7 @@ const useAdmin = () => {
     const id = localStorage.getItem("id");
 
     if (id) {
-      fetch(`http://127.0.0.1:8000/hook/is_admin/${id}`, {
+      fetch(`https://quiz-app-backend-ybe6.onrender.com/hook/is_admin/${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

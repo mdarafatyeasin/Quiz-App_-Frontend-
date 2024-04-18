@@ -21,7 +21,7 @@ const CreateQuiz = () => {
     // Send a POST request
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/quiz/quiz_card/",
+        "https://quiz-app-backend-ybe6.onrender.com/quiz/quiz_card/",
         requestBody
       );
       if (response.status === 201) {

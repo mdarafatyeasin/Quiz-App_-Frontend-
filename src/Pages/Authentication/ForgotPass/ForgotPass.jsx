@@ -23,7 +23,7 @@ const ForgotPass = () => {
     // Send a POST request
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/password/forgot-password/",
+        "https://quiz-app-backend-ybe6.onrender.com/password/forgot-password/",
         requestBody
       );
       // console.log(response);

@@ -16,7 +16,7 @@ const PlayQuiz = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const url = `http://127.0.0.1:8000/quiz/card_question/${id}`;
+    const url = `https://quiz-app-backend-ybe6.onrender.com/quiz/card_question/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {

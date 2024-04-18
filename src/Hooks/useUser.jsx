@@ -9,7 +9,7 @@ const useUser = () => {
     const token = localStorage.getItem("token");
 
     if (id && token) {
-      fetch(`http://127.0.0.1:8000/hook/is_verified/${id}/${token}`, {
+      fetch(`https://quiz-app-backend-ybe6.onrender.com/hook/is_verified/${id}/${token}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

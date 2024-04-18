@@ -42,7 +42,7 @@ const Registration = () => {
     };
 
     // Make the fetch request
-    fetch("http://127.0.0.1:8000/auth/registration/", requestOptions)
+    fetch("https://quiz-app-backend-ybe6.onrender.com/auth/registration/", requestOptions)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");

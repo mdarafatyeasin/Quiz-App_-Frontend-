@@ -34,7 +34,7 @@ const Login = () => {
     };
 
     // Make the fetch request
-    fetch("http://127.0.0.1:8000/auth/login/", requestOptions)
+    fetch("https://quiz-app-backend-ybe6.onrender.com/auth/login/", requestOptions)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");

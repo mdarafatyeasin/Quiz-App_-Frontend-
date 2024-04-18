@@ -39,7 +39,7 @@ const UploadForm = () => {
         // Send a POST request
         try {
             const response = await axios.post(
-                "http://127.0.0.1:8000/quiz/all_questions/",
+                "https://quiz-app-backend-ybe6.onrender.com/quiz/all_questions/",
                 requestBody
             );
             if (response.status === 201) {

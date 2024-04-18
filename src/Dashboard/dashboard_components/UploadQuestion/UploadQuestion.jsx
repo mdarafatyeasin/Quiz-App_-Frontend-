@@ -15,7 +15,7 @@ const UploadQuestion = () => {
       setCardLoading(true)
       try {
         const response = await axios.get(
-          "http://127.0.0.1:8000/quiz/quiz_card/"
+          "https://quiz-app-backend-ybe6.onrender.com/quiz/quiz_card/"
         );
         // console.log(response.data);
         setQuizCardData(response.data);
@@ -32,7 +32,7 @@ const UploadQuestion = () => {
     try {
       const confirmed = window.confirm("Are you sure you want to delete this quiz card?");
       if (confirmed) {
-        await axios.delete(`http://127.0.0.1:8000/quiz/quiz_card/${id}`);
+        await axios.delete(`https://quiz-app-backend-ybe6.onrender.com/quiz/quiz_card/${id}`);
         setQuizCardData((prevState) =>
           prevState.filter((card) => card.id !== id)
         );

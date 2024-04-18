@@ -27,7 +27,7 @@ const UpdateQuestion = () => {
       setQuestionLoader(true);
       try {
         const response = await axios.get(
-          `http://127.0.0.1:8000/quiz/all_questions/${id}/`
+          `https://quiz-app-backend-ybe6.onrender.com/quiz/all_questions/${id}/`
         );
         console.log(response.data);
         setQuestion(response.data.question);
@@ -73,7 +73,7 @@ const UpdateQuestion = () => {
   const updateQuestion = async (updatedData) => {
     try {
       await axios.put(
-        `http://127.0.0.1:8000/quiz/all_questions/${id}/`,
+        `https://quiz-app-backend-ybe6.onrender.com/quiz/all_questions/${id}/`,
         updatedData
       );
     } catch (error) {
